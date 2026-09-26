@@ -1,25 +1,24 @@
-# myCursor — design насмотренность (motion-first)
+# OCULO — насмотренность в движении
 
-Глобальный апгрейд умения агента делать **красивые динамичные** сайты.
+Редизайн репозитория `cursor/design-nasmotrennost-f42e`: динамичный сайт вокруг настоящего кадра + skill для агента.
 
-## Главное
-
-| Путь | Что |
-| --- | --- |
-| `.cursor/skills/design-nasmotrennost/` | Навык: skill + SOURCES + motion + checklist |
-| `showcase/index.html` | Живая витрина KINE (cursor / scroll / magnetic CTA) |
-| `ОТЧЕТ.md` | Отчёт простым русским |
-
-## Источники вкуса (канон)
-
-См. `.cursor/skills/design-nasmotrennost/SOURCES.md`  
-motionsites · getlayers · 60fps · cta.gallery · loadmo.re · supahero · navbar.gallery · refero · kage · 21st …
-
-## Запуск витрины
+## Сайт
 
 ```bash
-python3 -m http.server 8765 --directory showcase
-# открыть http://127.0.0.1:8765
+python3 -m http.server 8765 --directory .
+# http://127.0.0.1:8765
 ```
 
-Двигай мышью, скролль, наведи на зелёную кнопку.
+Главная: `index.html`  
+Фото: `assets/`
+
+**Двигай мышью** (параллакс), **скролль**, наведи на белую кнопку (магнит).
+
+## Skill агента
+
+`.cursor/skills/design-nasmotrennost/` — motion-first + `SOURCES.md` (motionsites, 60fps, cta.gallery…).
+
+## Refs
+
+- [Vintage Care · motionsites](https://motionsites.ai/?prompt=vintage-care)
+- 60fps · loadmo.re · cta.gallery · getlayers · supahero · navbar.gallery
