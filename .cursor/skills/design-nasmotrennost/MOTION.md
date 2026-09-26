@@ -1,63 +1,53 @@
-# Motion: правила вкуса
+# Motion Playbook — динамика, не декорация
 
-Сжатая выжимка Emil Kowalski + Apple Fluid Interfaces для веба.
+Вкус: [60fps.design](https://60fps.design) tags + Apple fluid + Emil Kowalski.
 
-## Решать: анимировать ли вообще
+## Обязательный набор для лендинга
 
-| Частота | Решение |
-| --- | --- |
-| 100+ раз/день (шорткаты, command palette toggle) | Никогда |
-| Десятки/день (hover списка) | Убрать или сильно укоротить |
-| Иногда (модалка, toast, drawer) | Стандарт 150–250ms |
-| Редко / первый раз | Можно delight |
+### 1. Cursor field (фон живой)
+- Spotlight / mesh / gradient следует за курсором с **lerp** (0.08–0.15)
+- На mobile: гироскоп или медленный idle drift
+- refs: getlayers gradients, motionsites Animated Backgrounds
 
-Клавиатурные действия — **без** анимации открытия/закрытия.
+### 2. Scroll life
+- Секции появляются stagger’ом (y: 24→0, opacity)
+- Хотя бы один scrub/parallax слой
+- Progress hint (линия/точка) опционально
+- refs: 60fps Scroll / Parallax / Stagger
 
-## Технические правила
+### 3. CTA magnetism
+- Кнопка слегка тянется к курсору в радиусе ~80px
+- Press: `scale(0.97)` мгновенно
+- refs: cta.gallery + 60fps Button / Spring
 
-```css
-/* Хорошо */
-.btn {
-  transition: transform 120ms ease-out, opacity 120ms ease-out;
-}
-.btn:active {
-  transform: scale(0.97);
-}
+### 4. Nav behavior
+- Scroll down → compact / blur / hide
+- Scroll up → показать
+- refs: navbar.gallery
 
-/* Плохо */
-.btn {
-  transition: all 300ms ease-in;
-}
+## Словарь эффектов (из 60fps)
+
+Используй точные имена: Morph, Stagger, Spring Physics, Shared Element, Reveal, Rubber-banding, Shimmer, Parallax, Idle Animation, Liquid Glass, Card Stack, Flick.
+
+## Код-скелет (идея)
+
+```js
+// lerp cursor
+cx += (tx - cx) * 0.12;
+cy += (ty - cy) * 0.12;
+root.style.setProperty('--mx', cx + 'px');
+root.style.setProperty('--my', cy + 'px');
+
+// magnetic
+const dx = mx - bx, dy = my - by;
+if (Math.hypot(dx, dy) < 80) btn.style.transform = `translate(${dx*0.25}px, ${dy*0.25}px)`;
 ```
 
-- Анимируй только `transform` и `opacity`
-- Не `scale(0)` → используй `scale(0.95)` + opacity
-- `ease-out` на вход; `ease-in` на появлении ощущается вялым
-- Popover: `transform-origin` от триггера
-- Modal: origin по центру ок
-
-## Springs (жесты)
-
-Для drag/swipe/sheet — springs, не фиксированный CSS keyframes:
-
-- По умолчанию critically damped (без лишнего bounce)
-- Bounce только если жест нёс momentum (flick)
-- Анимация должна прерываться пальцем в любой момент
-- На release — передать velocity в spring
-
-## Сайт: минимум 2–3 движения
-
-Примеры хорошего набора для лендинга:
-
-1. Hero: мягкий fade/rise текста (~400ms, once)
-2. CTA: press scale 0.97
-3. Ниже fold: лёгкий stagger секций при scroll (с `IntersectionObserver`, уважать reduced-motion)
+## Reduced motion
 
 ```css
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
+  * { animation: none !important; transition: none !important; }
 }
 ```
+При reduce: оставь статичный красивый кадр, убери cursor chase.

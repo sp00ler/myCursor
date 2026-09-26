@@ -1,48 +1,38 @@
-# Паттерны насмотренности
+# Паттерны динамичных сайтов
 
-Краткая шпаргалка: что смотреть у сильных продуктов и как переносить на сайт.
+Собрано по галереям пользователя (motionsites, getlayers, loadmo.re, 60fps, cta, navbar, supahero).
 
-## Лендинг / маркетинг
-
-| Паттерн | Суть | Когда |
+## Hero
+| Паттерн | Суть | Где смотреть |
 | --- | --- | --- |
-| Full-bleed product hero | Продукт крупно на весь экран | SaaS, app, gadget |
-| Brand-as-hero | Имя бренда = главный визуальный сигнал | Брендовые страницы |
-| Single CTA band | Одна цель на экран | Конверсия |
-| Scroll storytelling | Каждая секция — один кадр истории | Narrative brands |
-| Proof strip (ниже fold) | Отзывы/логотипы после героя | Trust, B2B |
+| Kinetic canvas | Фон/3D/градиент реагирует на мышь | motionsites, getlayers |
+| Editorial product | Крупный объект + воздух + serif display | motionsites Vintage Care |
+| Full-bleed media | Видео/фото на весь экран + тонкий UI | supahero, loadmo.re |
+| Split reveal | Текст и media входят разными путями | 60fps Reveal |
 
-## Приложение / продукт UI
-
-| Паттерн | Суть | Когда |
+## CTA
+| Паттерн | Суть | Где |
 | --- | --- | --- |
-| Content-first canvas | UI уходит, контент в центре | Viewer, editor, media |
-| Floating HUD / island | Плавающая капсула команд | Immersive tools |
-| Command palette | Spotlight вместо системных диалогов | Power users |
-| Translucent chrome | Mica/Acrylic / blur toolbar | Desktop-feel, Win11/macOS |
-| Density modes | Grid / List / Masonry | Каталоги файлов |
+| Magnetic pill | Тянется к курсору | cta.gallery, 60fps |
+| Morph label | Текст кнопки меняется плавно | 60fps Morph |
+| Sticky CTA bar | Появляется после fold | cta.gallery |
 
-## Motion-паттерны (имена)
+## Nav
+| Паттерн | Суть | Где |
+| --- | --- | --- |
+| Blur compact | Сжимается + backdrop blur | navbar.gallery |
+| Hide on down | Прячется при скролле вниз | navbar.gallery |
+| Island nav | Плавающая капсула | navbar.gallery, 60fps |
 
-- **Fade / Scale-in** — появление мягкое с 0.95
-- **Stagger** — каскад списка
-- **Origin-aware** — меню растёт от кнопки
-- **Shared element** — миниатюра → полный вид
-- **Rubber-band** — сопротивление за границей
-- **Crossfade** — смена изображений без чёрного кадра
+## Scroll storytelling
+| Паттерн | Суть | Где |
+| --- | --- | --- |
+| Pin + scrub | Секция закреплена, scrub анимация | getlayers sections |
+| Stagger cascade | Элементы волной | 60fps Stagger |
+| Horizontal takeover | Горизонтальный скролл внутри | loadmo.re |
 
-## Что копировать у лучших (принципы, не пиксели)
-
-1. **Линейность взгляда** — куда глаз идёт первым/вторым/третьим
-2. **Воздух** — пустота как часть композиции
-3. **Ограничение** — 1 акцент, 2 шрифта, 3 размера
-4. **Физика** — кнопки «продавливаются», панели Continuоусны
-5. **Сдержанность** — лучше убрать, чем добавить
-
-## Антипаттерны (узнал — удали)
-
-- Dashboard-hero: 6 виджетов на первом экране
-- Feature bingo: сетка из 9 одинаковых карточек с иконками
-- Gradient soup: 4 градиента без иерархии
-- Fake glass: blur + белый текст без контраста
-- Animation for animation: bounce на каждом hover
+## Антипаттерны
+- Статичный «красивый» лендинг без взаимодействия
+- 9 feature-карточек с иконками в герое
+- Bounce на каждом hover
+- Копирование чужого бренда один-в-один

@@ -1,27 +1,25 @@
-# myCursor
+# myCursor — design насмотренность (motion-first)
 
-Рабочее пространство для дизайн-насмотренности и апгрейда интерфейсов.
+Глобальный апгрейд умения агента делать **красивые динамичные** сайты.
 
-## Что внутри
+## Главное
 
-| Путь | Зачем |
+| Путь | Что |
 | --- | --- |
-| `.cursor/skills/design-nasmotrennost/` | Навык дизайна для агента |
-| `design-system/PRISMVIEW.md` | Улучшенная дизайн-система PrismView |
-| `docs/AUDIT.md` | Аудит «было → стало» |
-| `showcase/index.html` | Живая витрина лендинга |
+| `.cursor/skills/design-nasmotrennost/` | Навык: skill + SOURCES + motion + checklist |
+| `showcase/index.html` | Живая витрина KINE (cursor / scroll / magnetic CTA) |
 | `ОТЧЕТ.md` | Отчёт простым русским |
 
-## Быстрый старт
+## Источники вкуса (канон)
 
-Открой в браузере:
+См. `.cursor/skills/design-nasmotrennost/SOURCES.md`  
+motionsites · getlayers · 60fps · cta.gallery · loadmo.re · supahero · navbar.gallery · refero · kage · 21st …
+
+## Запуск витрины
 
 ```bash
-open showcase/index.html
-# или
 python3 -m http.server 8765 --directory showcase
+# открыть http://127.0.0.1:8765
 ```
 
-## Следующий шаг
-
-Пришли URL или репозиторий реального сайта — применим тот же навык к нему.
+Двигай мышью, скролль, наведи на зелёную кнопку.
